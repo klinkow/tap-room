@@ -1,0 +1,17 @@
+{
+  "name": "tap-room",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Bill Klinkow and Erica Nafziger"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
