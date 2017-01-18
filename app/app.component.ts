@@ -5,55 +5,49 @@ import { Component } from '@angular/core';
   template: `
   <div class="container">
     <h1>Tap Room</h1>
-    <table>
-      <thead>
-        <th></th>
-        <th>Beer</th>
-        <th>Brand</th>
-        <th>Style</th>
-        <th>Price</th>
-        <th>ABV</th>
-        <th>Beer's Left</th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tr *ngFor="let currentKeg of kegs">
-        <td><button (click)="editKeg(currentKeg)">Edit</button></td>
-        <td>{{currentKeg.name}}</td>
-        <td>{{currentKeg.brand}}</td>
-        <td>{{currentKeg.style}}</td>
-        <td>\${{currentKeg.price.toFixed(2)}}</td>
-        <td>{{currentKeg.abv}}%</td>
-        <td>{{currentKeg.quantity}} pints</td>
-        <td><button (click)="subtractPint(currentKeg)">Pint</button></td>
-        <td><button (click)="subtractGrowler(currentKeg)">Growler</button></td>
-      </tr>
-    </table>
+    <div class="card-container">
+      <div class="card" *ngFor="let currentKeg of kegs">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="./resources/img/keg.png">
+        </div>
+        <div class="card-content">
+          <h2 class="card-title">{{currentKeg.name}}
+          <span class='card-title activator grey-text text-darken-4'><a (click)="editKeg(currentKeg)" class="btn-floating btn-med waves-effect waves-light red right"><i class="material-icons">mode_edit</i></a></span></h2>
+          <p>{{currentKeg.brand}} | {{currentKeg.style}}</p>
+          <p>\${{currentKeg.price.toFixed(2)}} | {{currentKeg.abv}}%</p>
+          <p>{{currentKeg.quantity}} pints</p>
+          <a (click)="subtractPint(currentKeg)" class="btn center waves-effect waves-light blue">pint</a>
+          <a (click)="subtractGrowler(currentKeg)" class="btn center waves-effect waves-light green">growler</a>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
 
-    <div *ngIf="selectedKeg">
-      <input [(ngModel)]="selectedKeg.name">
-      <input [(ngModel)]="selectedKeg.brand">
-      <input [(ngModel)]="selectedKeg.style">
-      <input [(ngModel)]="selectedKeg.price">
-      <input [(ngModel)]="selectedKeg.abv">
-      <input [(ngModel)]="selectedKeg.description">
-      <input [(ngModel)]="selectedKeg.quantity">
-      <button (click)="updateKeg()" type="button">Submit</button>
-    </div>
+          <div *ngIf="selectedKeg">
+            <input [(ngModel)]="selectedKeg.name">
+            <input [(ngModel)]="selectedKeg.brand">
+            <input [(ngModel)]="selectedKeg.style">
+            <input [(ngModel)]="selectedKeg.price">
+            <input [(ngModel)]="selectedKeg.abv">
+            <input [(ngModel)]="selectedKeg.description">
+            <input [(ngModel)]="selectedKeg.quantity">
+            <button (click)="updateKeg()" type="button">Submit</button>
+          </div>
+        </div>
+      </div><!--end of card-->
+    </div><!--end of card-container-->
+
+
 
     <h1>Kegs on Order</h1>
-    <table>
-      <thead>
-        <th>Beer</th>
-        <th>Brand</th>
-        <th>Style</th>
-      </thead>
-      <tr *ngFor="let currentKeg of kegsOnOrder">
-        <td>{{currentKeg.name}}</td>
-        <td>{{currentKeg.brand}}</td>
-        <td>{{currentKeg.style}}</td>
-      </tr>
-    </table>
+    <div class="card" *ngFor="let currentKeg of kegsOnOrder">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="./resources/img/keg.png">
+      </div>
+      <h2>{{currentKeg.name}}</h2>
+      <h5>{{currentKeg.brand}} - {{currentKeg.style}}</h5>
+      <p>\${{currentKeg.price.toFixed(2)}} | {{currentKeg.abv}}%</p>
+      <p>{{currentKeg.quantity}} pints</p>
+    </div>
   </div>
 
 
@@ -65,7 +59,10 @@ export class AppComponent {
   kegs: Keg[] = [
     new Keg("Total Domination", "Ninkasi", "IPA", 5, 6.7, 5, "A delightful blend of citrus and floral hop notes dominate the senses while a trio of malt adds a clean finish."),
     new Keg("Vanilla Oatis", "Ninkasi", "Oatmeal Stout", 124, 7, 5, "A divine blend of vanilla, coffee, chocolate, and roasted malt notes swirl together to create a smooth Oatmeal Stout with a crisp finish."),
-    new Keg("Milk Stout Nitro", "Left Hand Brewing", "Sweet Stout", 2, 6, 5.5, "Dark & delicious, America’s great milk stout will change your perception about what a stout can be.")
+    new Keg("Milk Stout Nitro", "Left Hand Brewing", "Sweet Stout", 2, 6, 5.5, "Dark & delicious, America’s great milk stout will change your perception about what a stout can be."),
+    new Keg("Ripstop Rye Pils", "Base Camp", "Rye Pilsner", 124, 5.7, 4.5, "Aromas of European malt and noble-type hops mingle with a dignified, refreshing, and clean malt character that is further distinguished with a generous addition of spicy rye malt, creating a beer that is at once zesty, crisp, hoppy, and incredibly drinkable."),
+    new Keg("Belgian Strong Dark", "Pfriem", "Ale", 124, 10, 6, "This beer has complex flavors of fig dipped in dark chocolate with ripe fruit and toffee."),
+    new Keg("Voodoo Doughnut Grape Guerrilla", "Rogue", "Ale", 124, 7.5, 3, "This ale was inspired by the Voodoo Doughnut Grape Ape doughnut, a creation that features vanilla frosting, grape dust and purple sprinkles.")
   ];
 
   kegsOnOrder : Keg[] = [];
