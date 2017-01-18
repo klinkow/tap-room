@@ -14,11 +14,23 @@
   .card .btn {
     display: block;
     margin: 0 auto; }
-  .card .card-image img {
-    display: block;
-    margin: 0 auto;
-    height: 200px;
-    width: 150px;
-    object-fit: contain; }
+  .card .card-image {
+    position: relative; }
+    .card .card-image img {
+      display: block;
+      margin: 0 auto;
+      height: 200px;
+      width: 180px;
+      object-fit: contain; }
+
+.fill-level {
+  left: 50%;
+  bottom: 1px;
+  z-index: -1;
+  transform: translate(-50%, 0);
+  position: absolute;
+  height: 50%;
+  width: 160px;
+  background: green; }
 
 /*# sourceMappingURL=styles.css.map */

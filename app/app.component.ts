@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
     <div class="card-container">
       <div class="card" *ngFor="let currentKeg of kegs">
         <div class="card-image waves-effect waves-block waves-light">
+          <div class="fill-level" [style.height.%]="(currentKeg.quantity/124)*100"></div>
           <img class="activator" src="./resources/img/keg.png">
         </div>
         <div class="card-content">
@@ -57,7 +58,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   kegs: Keg[] = [
-    new Keg("Total Domination", "Ninkasi", "IPA", 5, 6.7, 5, "A delightful blend of citrus and floral hop notes dominate the senses while a trio of malt adds a clean finish."),
+    new Keg("Total Domination", "Ninkasi", "IPA", 50, 6.7, 5, "A delightful blend of citrus and floral hop notes dominate the senses while a trio of malt adds a clean finish."),
     new Keg("Vanilla Oatis", "Ninkasi", "Oatmeal Stout", 124, 7, 5, "A divine blend of vanilla, coffee, chocolate, and roasted malt notes swirl together to create a smooth Oatmeal Stout with a crisp finish."),
     new Keg("Milk Stout Nitro", "Left Hand Brewing", "Sweet Stout", 2, 6, 5.5, "Dark & delicious, America’s great milk stout will change your perception about what a stout can be."),
     new Keg("Ripstop Rye Pils", "Base Camp", "Rye Pilsner", 124, 5.7, 4.5, "Aromas of European malt and noble-type hops mingle with a dignified, refreshing, and clean malt character that is further distinguished with a generous addition of spicy rye malt, creating a beer that is at once zesty, crisp, hoppy, and incredibly drinkable."),

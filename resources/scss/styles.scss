@@ -21,13 +21,24 @@ $tomato: tomato;
     margin: 0 auto;
   }
   .card-image {
+    position: relative;
     img {
       display: block;
       margin: 0 auto;
       height: 200px;
-      width: 150px;
+      width: 180px;
       object-fit: contain;
     }
 
   }
+}
+.fill-level {
+  left: 50%;
+  bottom: 1px;
+  z-index: -1;
+  transform: translate(-50%, 0);
+  position: absolute;
+  height: 50%;
+  width: 160px;
+  background: green;
 }
