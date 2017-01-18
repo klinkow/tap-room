@@ -23,7 +23,9 @@ import { Component } from '@angular/core';
       <td>{{currentKeg.abv}}%</td>
       <td>{{currentKeg.description}}</td>
       <td>{{currentKeg.quantity}} pints</td>
-      <td></td>
+      <td><button (click)="subtractPint(currentKeg)">Pint</button></td>
+      <td><button (click)="subtractGrowler(currentKeg)">Growler</button></td>
+
     </tr>
   </table>
   <div *ngIf="selectedKeg">
@@ -48,6 +50,14 @@ kegs: Keg[] = [
   ];
 
   selectedKeg = null;
+
+  subtractPint(currentKeg) {
+    currentKeg.quantity -= 1;
+  }
+  
+  subtractGrowler(currentKeg) {
+    currentKeg.quantity -= 4;
+  }
 
   editKeg(currentKeg) {
     this.selectedKeg = currentKeg;
