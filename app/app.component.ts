@@ -3,55 +3,58 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-  <h1>Tap Room</h1>
-  <table>
-    <thead>
-      <th>Beer</th>
-      <th>Brand</th>
-      <th>Style</th>
-      <th>Price</th>
-      <th>ABV</th>
-      <th>Description</th>
-      <th>Beer's Left</th>
-    </thead>
-    <tr *ngFor="let currentKeg of kegs">
-      <td><button (click)="editKeg(currentKeg)">Edit</button></td>
-      <td>{{currentKeg.name}}</td>
-      <td>{{currentKeg.brand}}</td>
-      <td>{{currentKeg.style}}</td>
-      <td>\${{currentKeg.price.toFixed(2)}}</td>
-      <td>{{currentKeg.abv}}%</td>
-      <td>{{currentKeg.description}}</td>
-      <td>{{currentKeg.quantity}} pints</td>
-      <td><button (click)="subtractPint(currentKeg)">Pint</button></td>
-      <td><button (click)="subtractGrowler(currentKeg)">Growler</button></td>
-    </tr>
-  </table>
+  <div class="container">
+    <h1>Tap Room</h1>
+    <table>
+      <thead>
+        <th></th>
+        <th>Beer</th>
+        <th>Brand</th>
+        <th>Style</th>
+        <th>Price</th>
+        <th>ABV</th>
+        <th>Beer's Left</th>
+        <th></th>
+        <th></th>
+      </thead>
+      <tr *ngFor="let currentKeg of kegs">
+        <td><button (click)="editKeg(currentKeg)">Edit</button></td>
+        <td>{{currentKeg.name}}</td>
+        <td>{{currentKeg.brand}}</td>
+        <td>{{currentKeg.style}}</td>
+        <td>\${{currentKeg.price.toFixed(2)}}</td>
+        <td>{{currentKeg.abv}}%</td>
+        <td>{{currentKeg.quantity}} pints</td>
+        <td><button (click)="subtractPint(currentKeg)">Pint</button></td>
+        <td><button (click)="subtractGrowler(currentKeg)">Growler</button></td>
+      </tr>
+    </table>
 
-  <div *ngIf="selectedKeg">
-    <input [(ngModel)]="selectedKeg.name">
-    <input [(ngModel)]="selectedKeg.brand">
-    <input [(ngModel)]="selectedKeg.style">
-    <input [(ngModel)]="selectedKeg.price">
-    <input [(ngModel)]="selectedKeg.abv">
-    <input [(ngModel)]="selectedKeg.description">
-    <input [(ngModel)]="selectedKeg.quantity">
-    <button (click)="updateKeg()" type="button">Submit</button>
+    <div *ngIf="selectedKeg">
+      <input [(ngModel)]="selectedKeg.name">
+      <input [(ngModel)]="selectedKeg.brand">
+      <input [(ngModel)]="selectedKeg.style">
+      <input [(ngModel)]="selectedKeg.price">
+      <input [(ngModel)]="selectedKeg.abv">
+      <input [(ngModel)]="selectedKeg.description">
+      <input [(ngModel)]="selectedKeg.quantity">
+      <button (click)="updateKeg()" type="button">Submit</button>
+    </div>
+
+    <h1>Kegs on Order</h1>
+    <table>
+      <thead>
+        <th>Beer</th>
+        <th>Brand</th>
+        <th>Style</th>
+      </thead>
+      <tr *ngFor="let currentKeg of kegsOnOrder">
+        <td>{{currentKeg.name}}</td>
+        <td>{{currentKeg.brand}}</td>
+        <td>{{currentKeg.style}}</td>
+      </tr>
+    </table>
   </div>
-
-  <h1>Kegs on Order</h1>
-  <table>
-    <thead>
-      <th>Beer</th>
-      <th>Brand</th>
-      <th>Style</th>
-    </thead>
-    <tr *ngFor="let currentKeg of kegsOnOrder">
-      <td>{{currentKeg.name}}</td>
-      <td>{{currentKeg.brand}}</td>
-      <td>{{currentKeg.style}}</td>
-    </tr>
-  </table>
 
 
   `

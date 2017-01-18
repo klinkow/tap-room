@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+$prim-color: rgb(200, 200, 200);
+$sec-color: rgb(232, 232, 232);
+$tomato: tomato;
+
+.container {
+  padding: 80px;
+}
+table {
+  border-spacing: 0px;
+  width: 70%;
+}
+thead {
+  background: $prim-color;
+  th {
+    padding: 0 15px;
+  }
+}
+tr {
+  border-collapse: collapse;
+  height: 100px;
+}
+tr:nth-child(even) {
+  background: $sec-color;
+}
+button {
+  margin: 0 20px;
+  padding: 20px;
+  background: $tomato;
+  outline: none;
+  border: 1px solid white;
+  &:hover {
+    cursor: pointer;
+  }
+}
