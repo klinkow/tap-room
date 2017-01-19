@@ -7,7 +7,7 @@
 h1 {
   text-align: center; }
 
-keg-list, .card-container {
+.card-container {
   display: flex;
   flex-wrap: wrap;
   border-radius: 50px; }
@@ -41,9 +41,6 @@ keg-list, .card-container {
       height: 200px;
       width: 187px;
       object-fit: cover; }
-
-.on-order {
-  top: 20px; }
 
 .keg-gold, .keg-low, .keg-dark, .keg-red {
   left: 50%;

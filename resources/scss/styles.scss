@@ -12,12 +12,14 @@ h1 {
 $medium-break: "(max-width: 1000px)";
 $small-break: "(max-width: 600px)";
 
-.card-container {
+keg-list, .card-container {
   display: flex;
   flex-wrap: wrap;
   border-radius: 50px;
 }
+
 .card {
+
   width: 31%;
   margin: 1%;
   border-radius: 18px;
@@ -55,8 +57,10 @@ $small-break: "(max-width: 600px)";
       width: 187px;
       object-fit: cover;
     }
-
   }
+}
+.on-order {
+  top: 20px;
 }
 %keg {
   left: 50%;
