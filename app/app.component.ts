@@ -7,9 +7,9 @@ import { Keg } from './keg.model';
   <div class="container">
     <h1>Tap Room</h1>
 
-    <keg-list [childKegList]="masterKegList"></keg-list>
+    <keg-list [childKegList]="masterKegList" [childKegsOnOrder]="masterKegsOnOrder"></keg-list>
 
-    <kegs-on-order [childKegsOnOrder]="masterKegList"></kegs-on-order>
+    <kegs-on-order [childKegsOnOrder]="masterKegsOnOrder"></kegs-on-order>
     </div>
 
   `
@@ -26,5 +26,10 @@ export class AppComponent {
     new Keg("Voodoo Doughnut Grape Guerrilla", "Rogue", "Ale", 124, 7.5, 3, "This ale was inspired by the Voodoo Doughnut Grape Ape doughnut, a creation that features vanilla frosting, grape dust and purple sprinkles."),
     new Keg("Hit The Hay", "Temescal", "Saison", 124, 5, 5, "A light saison with notes of coconut.")
   ];
+
+  masterKegsOnOrder : Keg[] = [
+      new Keg("Hit The Hay", "Temescal", "Saison", 0, 5, 5, "A light saison with notes of coconut.")
+  ];
+
 
 }

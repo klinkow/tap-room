@@ -32,13 +32,13 @@ import { Keg } from './keg.model';
 
 export class KegListComponent {
   @Input() childKegList: Keg[];
+  @Input() childKegsOnOrder: Keg[];
   @Output() clickSender = new EventEmitter();
 
   editButtonClicked(kegToEdit: Keg) {
     this.clickSender.emit(kegToEdit);
   }
 
-  kegsOnOrder : Keg[] = [];
   selectedKeg = null;
 
 
@@ -61,7 +61,7 @@ export class KegListComponent {
     } else if (currentKeg.quantity === 1) {
       currentKeg.quantity -= 1;
       this.childKegList.splice(this.childKegList.indexOf(currentKeg), 1);
-      this.kegsOnOrder.push(currentKeg);
+      this.childKegsOnOrder.push(currentKeg);
       alert("this Keg is out of beer!");
     } else {
       alert("this Keg is out of beer!");
@@ -74,7 +74,7 @@ export class KegListComponent {
     } else if (currentKeg.quantity === 4) {
       currentKeg.quantity -= 4;
       this.childKegList.splice(this.childKegList.indexOf(currentKeg), 1);
-      this.kegsOnOrder.push(currentKeg);
+      this.childKegsOnOrder.push(currentKeg);
       alert("this Keg is out of beer!");
     } else {
       alert("There is not enough beer for a growler!");
