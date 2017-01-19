@@ -17,11 +17,12 @@ import { Component } from '@angular/core';
           <p>{{currentKeg.brand}} | {{currentKeg.style}}</p>
           <p>\${{currentKeg.price}} | {{currentKeg.abv}}% ABV</p>
           <p>{{currentKeg.quantity}} pints</p>
+          <br>
           <a (click)="subtractPint(currentKeg)" class="btn center waves-effect waves-light blue">pint</a>
           <a (click)="subtractGrowler(currentKeg)" class="btn center waves-effect waves-light green">growler</a>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
 
           <div *ngIf="selectedKeg">
             <label>Name</label>
@@ -72,7 +73,7 @@ export class AppComponent {
     new Keg("Ripstop Rye Pils", "Base Camp", "Pilsner", 60, 5.7, 4.5, "Aromas of European malt and noble-type hops mingle with a dignified, refreshing, and clean malt character that is further distinguished with a generous addition of spicy rye malt, creating a beer that is at once zesty, crisp, hoppy, and incredibly drinkable."),
     new Keg("Belgian Strong Dark", "Pfriem", "Ale", 40, 10, 6, "This beer has complex flavors of fig dipped in dark chocolate with ripe fruit and toffee."),
     new Keg("Voodoo Doughnut Grape Guerrilla", "Rogue", "Ale", 124, 7.5, 3, "This ale was inspired by the Voodoo Doughnut Grape Ape doughnut, a creation that features vanilla frosting, grape dust and purple sprinkles."),
-    new Keg("Hit The Hay", "Temescal", "Saison", 80, 5, 5, "A light saison with notes of coconut.")
+    new Keg("Hit The Hay", "Temescal", "Saison", 124, 5, 5, "A light saison with notes of coconut.")
   ];
 
   kegsOnOrder : Keg[] = [];

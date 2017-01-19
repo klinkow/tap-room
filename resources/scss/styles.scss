@@ -2,7 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Archivo Narrow', sans-serif;
+}
+
+h1 {
+  text-align: center;
 }
 
 $medium-break: "(max-width: 1000px)";
@@ -11,27 +15,35 @@ $small-break: "(max-width: 600px)";
 .card-container {
   display: flex;
   flex-wrap: wrap;
-
+  border-radius: 50px;
 }
 .card {
   width: 31%;
   margin: 1%;
+  border-radius: 18px;
+
   @media screen and #{$medium-break} {
     width: 48%;
   }
+
   @media screen and #{$small-break} {
     width: 100%;
   }
+
   h2 {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
   }
+
+  a {
+    border-radius: 10px;
+  }
+
   .btn {
     display: block;
-    margin: 0 auto;
+    margin: 5px auto;
   }
   .card-image {
     margin-top: 20px;
@@ -72,5 +84,5 @@ $small-break: "(max-width: 600px)";
 
 .keg-red {
   @extend %keg;
-  background: linear-gradient(170deg, #b44100 20%, #aa3d00 50%, #903000 90%);
+  background: linear-gradient(170deg, #cb4300 20%, #aa3d00 50%, #903000 90%);
 }
