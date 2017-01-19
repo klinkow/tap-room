@@ -5,6 +5,7 @@ import { Keg } from './keg.model';
 @Component({
   selector: 'keg-list',
   template: `
+
   <div class="card" *ngFor="let currentKeg of childKegList | aleCheckPipe">
     <div class="card-image waves-effect waves-block waves-light">
       <div [class]="fillLevel(currentKeg)" [style.height.%]="(currentKeg.quantity/124)*100"></div>
@@ -40,8 +41,6 @@ export class KegListComponent {
   }
 
   selectedKeg = null;
-
-
 
   fillLevel(keg) {
     if (keg.quantity < 32) {
