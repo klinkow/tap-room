@@ -5,7 +5,7 @@ import { Keg } from './keg.model';
 @Component({
   selector: 'keg-list',
   template: `
-  <div class="card" *ngFor="let currentKeg of childKegList">
+  <div class="card" *ngFor="let currentKeg of childKegList | aleCheckPipe">
     <div class="card-image waves-effect waves-block waves-light">
       <div [class]="fillLevel(currentKeg)" [style.height.%]="(currentKeg.quantity/124)*100"></div>
       <img class="activator" src="./resources/img/keg.png">

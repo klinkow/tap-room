@@ -4,10 +4,11 @@ import { Keg } from './keg.model';
 @Component({
   selector: 'app-root',
   template: `
+  <new-keg [childKegList]="masterKegList"></new-keg>
   <div class="container">
+
     <h1>Tap Room</h1>
 
-    <new-keg [childKegList]="masterKegList"></new-keg>
 
     <keg-list [childKegList]="masterKegList" [childKegsOnOrder]="masterKegsOnOrder"></keg-list>
 
