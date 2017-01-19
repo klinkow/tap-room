@@ -19,7 +19,7 @@ import { Keg } from './keg.model';
     <input [(ngModel)]="childSelectedKeg.description">
     <label>Quantity</label>
     <input [(ngModel)]="childSelectedKeg.quantity">
-    <a (click)="deleteBeer(childSelectedKeg)" class="waves-effect waves-light btn">delete</a>
+    <delete-keg [childSelectedKeg]="childSelectedKeg" [childKegList]="childKegList"></delete-keg>
   </div>
   `
 })

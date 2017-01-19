@@ -6,6 +6,7 @@ import { KegListComponent }  from './keg-list.component';
 import { EditKegComponent } from './edit-keg.component';
 import { KegsOnOrderComponent } from './kegs-on-order.component';
 import { NewKegComponent } from './new-keg.component';
+import { DeleteKegComponent } from './delete-keg.component';
 import { StyleCheckPipe } from './stylecheck.pipe';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { StyleCheckPipe } from './stylecheck.pipe';
                   EditKegComponent,
                   KegsOnOrderComponent,
                   NewKegComponent,
+                  DeleteKegComponent,
                   StyleCheckPipe],
   bootstrap:    [ AppComponent ]
 })

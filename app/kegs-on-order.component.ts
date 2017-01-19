@@ -16,6 +16,7 @@ import { Keg } from './keg.model';
         <p>{{currentKeg.brand}} | {{currentKeg.style}}</p>
         <p>\${{currentKeg.price}} | {{currentKeg.abv}}% ABV</p>
         <p>{{currentKeg.quantity}} pints</p>
+        <delete-keg [childSelectedKeg]="currentKeg" [childKegList]="childKegsOnOrder"></delete-keg>
       </div>
     </div>
   </div>
