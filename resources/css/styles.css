@@ -11,26 +11,49 @@
 .card {
   width: 31%;
   margin: 1%; }
+  @media screen and (max-width: 1000px) {
+    .card {
+      width: 48%; } }
+  @media screen and (max-width: 600px) {
+    .card {
+      width: 100%; } }
+  .card h2 {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
   .card .btn {
     display: block;
     margin: 0 auto; }
   .card .card-image {
+    margin-top: 20px;
     position: relative; }
     .card .card-image img {
       display: block;
       margin: 0 auto;
       height: 200px;
-      width: 180px;
-      object-fit: contain; }
+      width: 187px;
+      object-fit: cover; }
 
-.fill-level {
+.keg-gold, .keg-low, .keg-dark, .keg-red {
   left: 50%;
-  bottom: 1px;
+  bottom: 2px;
   z-index: -1;
   transform: translate(-50%, 0);
   position: absolute;
   height: 50%;
-  width: 160px;
-  background: green; }
+  width: 186px; }
+
+.keg-gold {
+  background: linear-gradient(170deg, #F9E246 20%, #EE880C 50%, #B56327 90%); }
+
+.keg-low {
+  background: linear-gradient(170deg, #f94b46 20%, #eb3927 50%, #bf221d 90%); }
+
+.keg-dark {
+  background: linear-gradient(170deg, #543000 20%, #4d2c00 50%, #371700 90%); }
+
+.keg-red {
+  background: linear-gradient(170deg, #b44100 20%, #aa3d00 50%, #903000 90%); }
 
 /*# sourceMappingURL=styles.css.map */
