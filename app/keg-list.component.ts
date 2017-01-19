@@ -6,13 +6,14 @@ import { Keg } from './keg.model';
   selector: 'keg-list',
   template: `
 
-  <div class="card" *ngFor="let currentKeg of childKegList | aleCheckPipe">
+  <div class="card" *ngFor="let currentKeg of childKegList">
     <div class="card-image waves-effect waves-block waves-light">
       <div [class]="fillLevel(currentKeg)" [style.height.%]="(currentKeg.quantity/124)*100"></div>
       <img class="activator" src="./resources/img/keg.png">
     </div>
     <div class="card-content">
-    <span class='card-title activator grey-text text-darken-4'><a (click)="editButtonClicked(currentKeg)" class="btn-floating btn-med waves-effect waves-light red right"><i class="material-icons">mode_edit</i></a></span>
+    <span class='card-title activator grey-text text-darken-4'><a (click)="infoButtonClicked(currentKeg)" class="btn-floating btn-med waves-effect waves-light orange right"><i class="material-icons">info</i></a></span>
+    <span class='card-title activator grey-text text-darken-4'><a (click)="editKeg(currentKeg)" class="btn-floating btn-med waves-effect waves-light red right"><i class="material-icons">mode_edit</i></a></span>
       <h2 class="card-title">{{currentKeg.name}}</h2>
       <p>{{currentKeg.brand}} | {{currentKeg.style}}</p>
       <p>\${{currentKeg.price}} | {{currentKeg.abv}}% ABV</p>
@@ -24,7 +25,11 @@ import { Keg } from './keg.model';
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
 
-      <edit-keg (clickSender)="editKeg($)" [childSelectedKeg]="currentKeg"></edit-keg>
+      <div *ngIf="descriptionShow">
+        <h5>{{currentKeg.name}}</h5>
+        <p>{{currentKeg.description}}</p>
+      </div>
+      <edit-keg *ngIf="editShow" (clickSender)="editKeg($event)" [childSelectedKeg]="currentKeg" [childKegList]="childKegList"></edit-keg>
 
     </div>
   </div><!--end of card-->
@@ -80,8 +85,22 @@ export class KegListComponent {
     }
   }
 
+  descriptionShow : boolean = false;
+  editShow :boolean = false;
+
   editKeg(currentKeg) {
     this.selectedKeg = currentKeg;
+    this.editShow = true;
+    this.descriptionShow = false;
+  }
+
+
+  infoButtonClicked(currentKeg) {
+    this.selectedKeg = currentKeg;
+    this.descriptionShow = true;
+    this.editShow = false;
+
+    // this.description = true;
   }
 
   updateKeg() {
