@@ -106,4 +106,5 @@ gulp.task('build', ['ts'], function(){
   // we can use the buildProduction environment variable here later.
   gulp.start('bower');
   gulp.start('sassBuild');
+  gulp.start('jsBuild');
 });

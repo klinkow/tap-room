@@ -7,6 +7,8 @@ import { Keg } from './keg.model';
   <div class="container">
     <h1>Tap Room</h1>
 
+    <new-keg [childKegList]="masterKegList"></new-keg>
+
     <keg-list [childKegList]="masterKegList" [childKegsOnOrder]="masterKegsOnOrder"></keg-list>
 
     <kegs-on-order [childKegsOnOrder]="masterKegsOnOrder"></kegs-on-order>
