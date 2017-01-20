@@ -90,7 +90,7 @@ export class KegListComponent {
     }
   }
 
-  descriptionShow : boolean = false;
+  descriptionShow : boolean = true;
   editShow :boolean = false;
 
   editKeg(currentKeg) {
