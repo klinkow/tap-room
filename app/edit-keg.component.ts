@@ -19,7 +19,7 @@ import { Keg } from './keg.model';
     <input [(ngModel)]="childSelectedKeg.description">
     <label>Quantity</label>
     <input [(ngModel)]="childSelectedKeg.quantity">
-    <delete-keg [childSelectedKeg]="childSelectedKeg" [childKegList]="childKegList"></delete-keg>
+    <delete-keg [childSelectedKeg]="childSelectedKeg" (deleteSender)="deleteKeg($event)"></delete-keg>
   </div>
   `
 })
@@ -27,14 +27,10 @@ import { Keg } from './keg.model';
 
 export class EditKegComponent {
   @Input() childSelectedKeg: Keg;
-  @Input() childKegList: Keg[];
+  @Output() deleteSender = new EventEmitter();
 
-  deleteBeer(beer) {
-
-    if (confirm("Are you sure you want to delete this beer?")) {
-    alert("you fool!");
-    this.childKegList.splice(this.childKegList.indexOf(beer), 1);
-    }
-
+  deleteKeg($event) {
+    this.deleteSender.emit($event);
   }
+
 }

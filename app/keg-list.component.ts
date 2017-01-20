@@ -29,7 +29,7 @@ import { Keg } from './keg.model';
         <h5>{{currentKeg.name}}</h5>
         <p>{{currentKeg.description}}</p>
       </div>
-      <edit-keg *ngIf="editShow" (clickSender)="editKeg($event)" [childSelectedKeg]="currentKeg" [childKegList]="childKegList"></edit-keg>
+      <edit-keg *ngIf="editShow" (clickSender)="editKeg($event)" [childSelectedKeg]="currentKeg" (deleteSender)="deleteKeg($event)"></edit-keg>
 
     </div>
   </div><!--end of card-->
@@ -40,6 +40,11 @@ export class KegListComponent {
   @Input() childKegList: Keg[];
   @Input() childKegsOnOrder: Keg[];
   @Output() clickSender = new EventEmitter();
+  @Output() deleteSender = new EventEmitter();
+
+  deleteKeg($event) {
+    this.deleteSender.emit($event);
+  }
 
   editButtonClicked(kegToEdit: Keg) {
     this.clickSender.emit(kegToEdit);

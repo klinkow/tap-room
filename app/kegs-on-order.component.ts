@@ -16,7 +16,7 @@ import { Keg } from './keg.model';
         <p>{{currentKeg.brand}} | {{currentKeg.style}}</p>
         <p>\${{currentKeg.price}} | {{currentKeg.abv}}% ABV</p>
         <p>{{currentKeg.quantity}} pints</p>
-        <delete-keg [childSelectedKeg]="currentKeg" [childKegList]="childKegsOnOrder"></delete-keg>
+        <delete-keg [childSelectedKeg]="currentKeg" (deleteSender)="deleteOnOrderKeg($event)"></delete-keg>
       </div>
     </div>
   </div>
@@ -25,5 +25,9 @@ import { Keg } from './keg.model';
 
 export class KegsOnOrderComponent {
   @Input() childKegsOnOrder: Keg[];
+  @Output() deleteSender = new EventEmitter();
 
+  deleteOnOrderKeg($event) {
+    this.deleteSender.emit($event);
+  }
 }

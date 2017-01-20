@@ -11,13 +11,13 @@ import { Keg } from './keg.model';
 
 export class DeleteKegComponent {
   @Input() childSelectedKeg: Keg;
-  @Input() childKegList: Keg[];
+  @Output() deleteSender = new EventEmitter();
 
-  deleteBeer(beer) {
+  deleteBeer(keg) {
 
     if (confirm("Are you sure you want to delete this beer?")) {
-    alert("you fool!");
-    this.childKegList.splice(this.childKegList.indexOf(beer), 1);
+    this.deleteSender.emit({keg:keg});
+
     }
 
   }

@@ -10,15 +10,22 @@ import { Keg } from './keg.model';
     <h1>Tap Room</h1>
 
 
-    <keg-list [childKegList]="masterKegList" [childKegsOnOrder]="masterKegsOnOrder"></keg-list>
+    <keg-list (deleteSender)="deleteKeg($event)" [childKegList]="masterKegList" [childKegsOnOrder]="masterKegsOnOrder"></keg-list>
 
-    <kegs-on-order [childKegsOnOrder]="masterKegsOnOrder"></kegs-on-order>
+    <kegs-on-order (deleteSender)="deleteKeg($event)" (deleteSender)="deleteOnOrderKeg($event)" [childKegsOnOrder]="masterKegsOnOrder"></kegs-on-order>
     </div>
 
   `
 })
 
 export class AppComponent {
+
+  deleteKeg($event) {
+    this.masterKegList.splice(this.masterKegList.indexOf($event.keg), 1);
+  }
+  deleteOnOrderKeg($event) {
+    this.masterKegsOnOrder.splice(this.masterKegsOnOrder.indexOf($event.keg), 1);
+  }
 
   masterKegList: Keg[] = [
     new Keg("Total Domination", "Ninkasi", "IPA", 1, 6.7, 5, "A delightful blend of citrus and floral hop notes dominate the senses while a trio of malt adds a clean finish."),
@@ -33,6 +40,8 @@ export class AppComponent {
   masterKegsOnOrder : Keg[] = [
       new Keg("Hit The Hay", "Temescal", "Saison", 0, 5, 5, "A light saison with notes of coconut.")
   ];
+
+
 
 
 }
