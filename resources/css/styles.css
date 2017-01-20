@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: 'Archivo Narrow', sans-serif; }
 
+body {
+  background-image: url("../../../resources/img/paper.jpg"); }
+
 h1 {
   text-align: center; }
 

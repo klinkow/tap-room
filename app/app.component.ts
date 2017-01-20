@@ -14,7 +14,6 @@ import { Keg } from './keg.model';
 
     <kegs-on-order (deleteSender)="deleteKeg($event)" (deleteSender)="deleteOnOrderKeg($event)" [childKegsOnOrder]="masterKegsOnOrder"></kegs-on-order>
     </div>
-
   `
 })
 
